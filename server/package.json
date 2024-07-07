@@ -2,17 +2,31 @@
   "name": "server",
   "module": "index.ts",
   "type": "commonjs",
+  "author": {
+    "name": "Piyush Yadav",
+    "email": "piyushyadav0191@gmail.com"
+  },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only server.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^4.17.21",
     "nodemon": "^3.1.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "cloudinary": "^2.2.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "ioredis": "^5.4.1",
+    "mongoose": "^8.4.5",
+    "socket.io": "^4.7.5",
     "ts-node-dev": "^2.0.0"
   }
 }
