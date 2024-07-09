@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express"
 import cookieParser from "cookie-parser"
 import { rateLimit } from "express-rate-limit"
 import { ErrorMiddleware } from "./middleware/error"
+import userRouter from "./routes/user.routes"
 
 export const app = express()
 
@@ -17,7 +18,8 @@ const limiter = rateLimit({
     legacyHeaders: false
 })
 
-// app.use("/api/v1", )
+app.use("/api/v1", userRouter)
+// http://localhost:8000/api/v1/
 
 
 app.get("/test", (req: Request, res: Response, next: NextFunction) => {
