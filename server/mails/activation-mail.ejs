@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medium Activation Email</title>
-    <style type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medium Activation Email</title>
+  <style type="text/css">
     body {
       margin: 0;
       padding: 0;
@@ -15,10 +16,12 @@
       background-color: #fafafa;
       color: #222222
     }
+
     a {
       color: #000;
       text-decoration: none;
     }
+
     h1 {
       font-size: 24px;
       font-weight: 700;
@@ -27,60 +30,50 @@
       margin-bottom: 15px;
       text-align: center
     }
+
     p {
-        margin-top: 0;
+      margin-top: 0;
       margin-bottom: 23px;
     }
+
     .email-wrapper {
       max-width: 600px;
       margin: 0 auto;
     }
+
     .email-header {
-     padding: 24px;
+      padding: 24px;
       background-color: #0070f3;
       color: #ffffff;
     }
+
     .email-body {
-       padding: 24px;
+      padding: 24px;
       background-color: #ffffff;
-      
+
     }
+
     .email-footer {
-       padding: 24px;
+      padding: 24px;
       background-color: #f6f6f6;
       text-align: center;
     }
-    </style>
+  </style>
 </head>
+
 <body>
-    <div class="email-wrapper">
-    <div class="email-header">
-     <h1>
-        Welcome to Medium
-        </h1>
+  <div class="email-wrapper">
+    <div class="email-header"><h1>Welcome to Medium</h1></div>
+    <div class="email-body">
+      <p>hello <%= user.name %></p>
+      <p>Thank your for registering with Medium. To activate your accountm please use the followeing activation code:</p>
+      <h1><%= activationCode %></h1>
+      <p>Please tner this code on activation page within the next 5 minutes</p>
+      <p>If you did not register for Medium account, please ignore this email.</p>
     </div>
-       <div class="email-body">
-       <p>
-       hello <%= user.name %>
-       </p>
-       <p>
-       Thank your for registering with Medium. To activate your accountm please use the followeing activation code:
-       </p>
-       <h1>
-        <%= activationCode %>
-       </h1>
-       <p>
-       Please tner this code on activation page within the next 5 minutes
-       </p>
-       <p>
-       If you did not register for Medium account, please ignore this email.
-       </p>
-       </div>
-       <div>
-       <p>
-       If you have any questions, Please don't hesiste to contact us at <a href="mailto:piyushyadav0191@gmail.com">piyushyadav0191@gmail.com</a>
-       </p>
-       </div>
+    <div><p>If you have any questions, Please don't hesiste to contact us at <a href="mailto:piyushyadav0191@gmail.com">piyushyadav0191@gmail.com</a></p>
     </div>
+  </div>
 </body>
+
 </html>
