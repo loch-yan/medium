@@ -221,7 +221,7 @@ export const newPayment = CatchAsyncError(
         amount: req.body.amount,
         currency: "GBP",
         metadata: {
-          company: "E-Learning",
+          company: "Medium",
         },
         automatic_payment_methods: {
           enabled: true,
