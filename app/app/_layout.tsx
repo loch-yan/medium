@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import 'react-native-reanimated';
+import { ToastProvider } from 'react-native-toast-notifications'
 
 export {
   ErrorBoundary,
@@ -40,7 +41,7 @@ function RootLayoutNav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
-    <>
+    <ToastProvider>
       {isLoggedIn ? (
         <View>
         </View>
@@ -52,6 +53,6 @@ function RootLayoutNav() {
        <Stack.Screen name='(routes)/forgot-password/index' />
       </Stack>
       }
-    </>
+    </ToastProvider>
   );
 }

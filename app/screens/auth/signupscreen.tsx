@@ -7,9 +7,12 @@ import { useRouter } from 'expo-router'
 import { SignUpScreenStyles } from '@/styles/signupscreen/signupstyles'
 import axios from 'axios'
 import { SERVER_URL } from '@/utils/url'
+import { useToast } from "react-native-toast-notifications";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const SignUpScreen = () => {
   const router = useRouter()
+  const toast = useToast();
   const [isPasswordVisible, setisPasswordVisible] = useState(false)
   const [buttonSpinner, setButtonSpinner] = useState(false)
   const [userInfo, setUserInfo] = useState({
@@ -45,15 +48,23 @@ const SignUpScreen = () => {
 
   const handleSignUp = async () => {
     await axios
-      .post(`http://10.0.2.2:8000/api/v1/registration`, {
+      .post(`http://192.168.29.154:8000/api/v1/registration`, {
         email: userInfo.email,
         password: userInfo.password,
       })
       .then(async (res) => {
+        await AsyncStorage.setItem("activation_token", res.data.activationToken)
         console.log(res.data)
+        toast.show(res.data.message, {
+          type: "success",
+        })
+        router.push("/(routes)/verify-account")
       })
       .catch((error) => {
         console.log(error);
+        toast.show("Something went wrong", {
+          type: "error"
+        })
       });
   }
 
