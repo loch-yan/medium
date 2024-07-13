@@ -44,18 +44,17 @@ const SignUpScreen = () => {
   }
 
   const handleSignUp = async () => {
-   try {
-  const res =  await fetch(`http://localhost:8000/api/v1/registration`, {
-     method: "POST",
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({name: userInfo.name, email: userInfo.email, password: userInfo.password})
-     })
-    console.log(res)
-   } catch (error) {
-    console.log(error)
-   }
+    await axios
+      .post(`http://10.0.2.2:8000/api/v1/registration`, {
+        email: userInfo.email,
+        password: userInfo.password,
+      })
+      .then(async (res) => {
+        console.log(res.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
 
