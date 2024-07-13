@@ -64,9 +64,11 @@ export const registrationUser = CatchAsyncError(
           activationToken: activationToken.token,
         });
       } catch (error: any) {
+        console.log(error, "from register")
         return next(new ErrorHandler(error.message, 400));
       }
     } catch (error: any) {
+      console.log(error, "from register")
       return next(new ErrorHandler(error.message, 400));
     }
   }

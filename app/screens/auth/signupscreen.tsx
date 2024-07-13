@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { commonStyles } from '@/styles/common/common.style'
 import { useRouter } from 'expo-router'
 import { SignUpScreenStyles } from '@/styles/signupscreen/signupstyles'
+import axios from 'axios'
+import { SERVER_URL } from '@/utils/url'
 
 const SignUpScreen = () => {
   const router = useRouter()
@@ -41,8 +43,19 @@ const SignUpScreen = () => {
     }
   }
 
-  const handleSignUp = () => {
-    router.push("/(routes)/verify-account")
+  const handleSignUp = async () => {
+   try {
+  const res =  await fetch(`http://localhost:8000/api/v1/registration`, {
+     method: "POST",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({name: userInfo.name, email: userInfo.email, password: userInfo.password})
+     })
+    console.log(res)
+   } catch (error) {
+    console.log(error)
+   }
   }
 
 

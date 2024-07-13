@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { loginScreenStyles } from '@/styles/loginscreen/loginstyles'
 import { commonStyles } from '@/styles/common/common.style'
 import { useRouter } from 'expo-router'
+import axios from "axios"
+import { SERVER_URL } from '@/utils/url'
 
 const LoginScreen = () => {
   const router= useRouter()
@@ -40,8 +42,15 @@ const LoginScreen = () => {
     }
   }
 
-  const handleSignIn = () => {
-    console.log({userInfo})
+  const handleSignIn = async () => {
+    await axios.post(`${SERVER_URL}/login`, {
+      email: userInfo.email,
+      password: userInfo.password
+     }).then((res) => {
+      console.log(res)
+     }).catch((error) => {
+      console.log(error.message)
+     })
   }
 
 
