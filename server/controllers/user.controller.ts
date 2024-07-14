@@ -107,11 +107,14 @@ export const activateUser = CatchAsyncError(
     try {
       const { activation_token, activation_code } =
         req.body as IActivationRequest;
+      console.log(activation_token, activation_code);
 
       const newUser: { user: IUser; activationCode: string } = jwt.verify(
         activation_token,
         process.env.ACTIVATION_SECRET as string
       ) as { user: IUser; activationCode: string };
+
+      console.log(newUser);
 
       if (newUser.activationCode !== activation_code) {
         return next(new ErrorHandler("Invalid activation code", 400));
@@ -131,7 +134,8 @@ export const activateUser = CatchAsyncError(
       });
 
       res.status(201).json({
-        success: true,
+        message: "user activated successfully",
+	      success: true,
       });
     } catch (error: any) {
       return next(new ErrorHandler(error.message, 400));

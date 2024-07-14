@@ -3,9 +3,13 @@ import React, { useRef, useState } from 'react'
 import { VerifyScreenStyles } from '@/styles/verifyscreen/verifyscreenstyles'
 import Button from '@/components/ui/button'
 import { useRouter } from 'expo-router'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import axios from 'axios'
+import { useToast } from 'react-native-toast-notifications'
 
 const VerifyScreen = () => {
   const router = useRouter()
+  const toast = useToast()
   const [code, setCode] = useState(new Array(4).fill(''))
   const inputs = useRef<any>([...Array(4)].map(() => React.createRef()))
 
@@ -22,8 +26,26 @@ const VerifyScreen = () => {
     }
   }
 
-  const handleSubmit = () => {
-    
+  const handleSubmit = async () => {
+    const otp = code.join("")
+    const activationToken = await AsyncStorage.getItem("activation_token")
+    console.log(activationToken, otp)
+    await axios.post(`http://192.168.29.154:8000/api/v1/activate-user`, {
+      activation_token: activationToken,
+      activation_code: otp
+    }).then((res) => {
+      console.log(res)
+      toast.show(res.data.message, {
+        type: "success"
+      })
+      setCode(new Array(4).fill(""))
+      router.push("/(routes)/login")
+    }).catch((error) => {
+      console.log(error.message)
+      toast.show("Otp is not valid or expired", {
+        type: "danger"
+      })
+    })
   }
 
   return (

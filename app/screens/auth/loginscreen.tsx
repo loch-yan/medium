@@ -7,9 +7,12 @@ import { commonStyles } from '@/styles/common/common.style'
 import { useRouter } from 'expo-router'
 import axios from "axios"
 import { SERVER_URL } from '@/utils/url'
+import { useToast } from 'react-native-toast-notifications'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const LoginScreen = () => {
   const router= useRouter()
+  const toast = useToast()
   const [isPasswordVisible, setisPasswordVisible] = useState(false)
   const [buttonSpinner, setButtonSpinner] = useState(false)
   const [userInfo, setUserInfo] = useState({
@@ -43,13 +46,20 @@ const LoginScreen = () => {
   }
 
   const handleSignIn = async () => {
-    await axios.post(`${SERVER_URL}/login`, {
+    await axios.post(`http://192.168.29.154:8000/api/v1/login`, {
       email: userInfo.email,
       password: userInfo.password
-     }).then((res) => {
-      console.log(res)
+     }).then(async(res) => {
+      console.log(res.data)
+      await AsyncStorage.setItem("access_token", res.data.accessToken)
+      await AsyncStorage.setItem("refresh_token", res.data.refreshToken)
+      router.push("/(tabs)/home")
+      
      }).catch((error) => {
       console.log(error.message)
+      toast.show("Something went wrong", {
+        type: "danger"
+      })
      })
   }
 

@@ -1,7 +1,20 @@
+import Loader from '@/components/ui/loader'
+import useUser from '@/hooks/auth/useUser'
 import { Redirect } from 'expo-router'
 
 const index = () => {
-  return <Redirect href={"(routes)/onboarding"} />
+  const {loading, user} = useUser()
+  return (
+    <>
+    {
+      loading ? (
+      <Loader />
+      ) : (
+        <Redirect href={!user ? "/(routes)/onboarding": "/(tabs)/home"} />
+      )
+    }
+    </>
+  )
 }
 
 export default index

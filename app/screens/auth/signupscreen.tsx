@@ -49,6 +49,7 @@ const SignUpScreen = () => {
   const handleSignUp = async () => {
     await axios
       .post(`http://192.168.29.154:8000/api/v1/registration`, {
+        name: userInfo.name,
         email: userInfo.email,
         password: userInfo.password,
       })
@@ -63,7 +64,7 @@ const SignUpScreen = () => {
       .catch((error) => {
         console.log(error);
         toast.show("Something went wrong", {
-          type: "error"
+          type: "danger"
         })
       });
   }
