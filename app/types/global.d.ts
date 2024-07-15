@@ -6,16 +6,22 @@ export type onBoardingSwiperType = {
     image: any
 }
 
+type Avatar = {
+    public_id: string;
+    url: string;
+  };
+
 export type User = {
-    _id: string 
-    name: string
-    email: string
-    password?: string
-    courses: []
-    createdAt: Date
-    updatedAt: Date
-    avatar: string
-}
+  _id: string;
+  name: string;
+  email: string;
+  avatar?: Avatar;
+  password?: string;
+  courses: any;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
 
 export type CoursesType = {
 _id: any
@@ -38,3 +44,44 @@ courseData: CourseDataType[]
 ratings?: number
 purchased: number
 }
+
+export type CourseDataType = {
+  _id: string | any;
+  title: string;
+  description: string;
+  videoUrl: string;
+  videoThumbnail: object;
+  videoSection: string;
+  videoLength: number;
+  videoPlayer: string;
+  links: LinkType[];
+  suggestion: string;
+  questions: CommentType[];
+};
+
+export type CommentType = {
+  _id: string;
+  user: User;
+  question: string;
+  questionReplies: CommentType[];
+};
+
+export type ReviewType = {
+  user: User;
+  rating?: number;
+  comment: string;
+  commentReplies?: ReviewType[];
+};
+
+export type LinkType = {
+  title: string;
+  url: string;
+};
+
+export  type PrerequisiteType = {
+  title: string;
+};
+
+export type BenefitType = {
+  title: string;
+};

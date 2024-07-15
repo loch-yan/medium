@@ -5,14 +5,14 @@ import { heightPercentageToDP } from 'react-native-responsive-screen'
 import { BannerData } from '@/constants/constant'
 
 const HomeBannerSlider = () => {
-  console.log(BannerData)
+  
   return (
     <View style={styles.container}>
     <Swiper dotStyle={styles.dot} activeDotStyle={styles.activeDot} autoplay={true} autoplayTimeout={5}>
     {BannerData.map((item, index) => (
       <View key={index} style={styles.slide}>
         <Image source={item.bannerImageUrl!}
-         style={{width: "auto", height: "67%"}}
+            style={{ width: 400, height: 250 }}
          />
       </View>
     ))}

@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        marginHorizontal: 16
+        marginHorizontal: 16,
+        marginTop: 27
     },
     searchContainer: {
         // flex:1,

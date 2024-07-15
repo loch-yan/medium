@@ -1,15 +1,34 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useUser from '@/hooks/auth/useUser'
 import { Feather } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useRouter } from 'expo-router'
 
 const Header = () => {
+  const router = useRouter()
   const {user} = useUser()
+  console.log(user)
+
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const subscription = async () => {
+      const cart: any = await AsyncStorage.getItem("cart");
+      setCartItems(JSON.parse(cart));
+    };
+    subscription();
+  }, []);
+
+  const avatarSource = user?.avatar?.url 
+  ? { uri: user.avatar.url } 
+  : require("@/assets/icons/profile.png");
+
   return (
     <View style={styles.container}>
     <View style={styles.headerwrapper}>
-    <TouchableOpacity>
-      <Image source={user?.avatar ? user?.avatar : require("@/assets/icons/profile.png")} style={styles.image}  />
+    <TouchableOpacity onPress={() => router.push("/(tabs)/profile")}>
+      <Image source={avatarSource} style={styles.image}  />
     </TouchableOpacity>
     <View>
       <Text style={styles.helloText}>
@@ -20,14 +39,19 @@ const Header = () => {
       </Text>
     </View>
     </View>
-    <TouchableOpacity style={styles.bellButton}>
-    <View>
-      <Feather name="shopping-bag" size={26} color={"black"} />
-      <View style={styles.bellContainer}>
-
-      </View>
-    </View>
-    </TouchableOpacity>
+    <TouchableOpacity
+        style={styles.bellButton}
+        onPress={() => router.push("/(routes)/cart")}
+      >
+        <View>
+          <Feather name="shopping-bag" size={26} color={"black"} />
+          <View style={styles.bellContainer}>
+            <Text style={{ color: "#fff", fontSize: 14 }}>
+              {cartItems?.length}
+            </Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     </View>
   )
 }

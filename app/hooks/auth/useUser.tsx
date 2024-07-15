@@ -21,7 +21,6 @@ const useUser = () => {
                    "refresh-token": refreshToken
                 }
             }).then((res) => {
-                console.log(res.data)
                 setUser(res.data.user)
                 setLoading(false)
             }).catch((error) => {

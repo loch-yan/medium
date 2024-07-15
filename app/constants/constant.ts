@@ -26,16 +26,16 @@ export const onboardingSwiperData: onBoardingSwiperType[] = [
 
 export const BannerData = [
     {
-        bannerImageUrl: require("../assets/banner/1.png")
+        bannerImageUrl: require("../assets/banner/1.jpg")
     },
     {
-        bannerImageUrl: require("../assets/banner/2.png")
+        bannerImageUrl: require("../assets/banner/2.webp")
     },
     {
-        bannerImageUrl: require("../assets/banner/3.png")
+        bannerImageUrl: require("../assets/banner/3.webp")
     },
     {
-        bannerImageUrl: require("../assets/banner/4.png")
+        bannerImageUrl: require("../assets/banner/4.webp")
     },
    
 ]
