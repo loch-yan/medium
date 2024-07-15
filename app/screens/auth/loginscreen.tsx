@@ -53,7 +53,7 @@ const LoginScreen = () => {
       console.log(res.data)
       await AsyncStorage.setItem("access_token", res.data.accessToken)
       await AsyncStorage.setItem("refresh_token", res.data.refreshToken)
-      router.push("/(tabs)/home")
+      router.push("/(tabs)")
       
      }).catch((error) => {
       console.log(error.message)

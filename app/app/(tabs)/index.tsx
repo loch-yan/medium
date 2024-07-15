@@ -1,10 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Redirect } from 'expo-router'
+import HomeScreen from '@/screens/home/home.screen'
 
 const index = () => {
   return (
-    <Redirect href={"(tabs)/home"} />
+  <HomeScreen />
   )
 }
 

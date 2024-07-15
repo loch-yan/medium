@@ -2,10 +2,11 @@ import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { User } from '@/types/global'
 
 const useUser = () => {
     const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState(true)
+    const [user, setUser] = useState<User>()
     const [error, seterror] = useState("")
     const [refetch, setRefetch] = useState(false)
     useEffect(() => {

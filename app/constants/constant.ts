@@ -23,3 +23,19 @@ export const onboardingSwiperData: onBoardingSwiperType[] = [
         image: require("@/assets/welcome/intro3.png")
     },
 ]
+
+export const BannerData = [
+    {
+        bannerImageUrl: require("../assets/banner/1.png")
+    },
+    {
+        bannerImageUrl: require("../assets/banner/2.png")
+    },
+    {
+        bannerImageUrl: require("../assets/banner/3.png")
+    },
+    {
+        bannerImageUrl: require("../assets/banner/4.png")
+    },
+   
+]
