@@ -19,6 +19,7 @@ import {
   import { FontAwesome } from "@expo/vector-icons";
   import useUser from "@/hooks/auth/useUser";
 import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/global";
+import { SERVER_URL } from "@/utils/url";
   
   export const  CourseAccessScreen = () => {
     const [isLoading, setisLoading] = useState(true);
@@ -54,7 +55,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
       const accessToken = await AsyncStorage.getItem("access_token");
       const refreshToken = await AsyncStorage.getItem("refresh_token");
       await axios
-        .get(`http://192.168.29.154:8000/api/v1/get-course-content/${data._id}`, {
+        .get(`${SERVER_URL}/get-course-content/${data._id}`, {
           headers: {
             "access-token": accessToken,
             "refresh-token": refreshToken,
@@ -76,7 +77,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
   
       await axios
         .put(
-          `http://192.168.29.154:8000/api/v1/add-question`,
+          `${SERVER_URL}/add-question`,
           {
             question: quesion,
             courseId: data?._id,
@@ -107,7 +108,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
   
       await axios
         .put(
-          `http://192.168.29.154:8000/api/v1/add-review/${data?._id}`,
+          `${SERVER_URL}/add-review/${data?._id}`,
           {
             review,
             rating,

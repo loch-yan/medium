@@ -6,6 +6,7 @@ import { useRouter } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'axios'
 import { useToast } from 'react-native-toast-notifications'
+import { SERVER_URL } from '@/utils/url'
 
 const VerifyScreen = () => {
   const router = useRouter()
@@ -29,7 +30,7 @@ const VerifyScreen = () => {
   const handleSubmit = async () => {
     const otp = code.join("")
     const activationToken = await AsyncStorage.getItem("activation_token")
-    await axios.post(`http://192.168.29.154:8000/api/v1/activate-user`, {
+    await axios.post(`${SERVER_URL}/activate-user`, {
       activation_token: activationToken,
       activation_code: otp
     }).then((res) => {

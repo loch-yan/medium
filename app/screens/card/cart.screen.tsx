@@ -1,4 +1,5 @@
 import { CoursesType } from "@/types/global";
+import { SERVER_URL } from "@/utils/url";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useStripe} from "@stripe/stripe-react-native"
@@ -65,7 +66,7 @@ export default function CartScreen() {
       );
 
       const paymentIntentResponse = await axios.post(
-        `http://192.168.29.154:8000/api/v1/payment`,
+        `${SERVER_URL}/payment`,
         { amount },
         {
           headers: {
@@ -105,7 +106,7 @@ export default function CartScreen() {
 
     await axios
       .post(
-        `http://192.168.29.154:8000/api/v1/create-mobile-order`,
+        `${SERVER_URL}/create-mobile-order`,
         {
           courseId: cartItems[0]._id,
           payment_info: paymentResponse,

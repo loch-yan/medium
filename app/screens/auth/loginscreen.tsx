@@ -46,7 +46,7 @@ const LoginScreen = () => {
   }
 
   const handleSignIn = async () => {
-    await axios.post(`http://192.168.29.154:8000/api/v1/login`, {
+    await axios.post(`${SERVER_URL}/login`, {
       email: userInfo.email,
       password: userInfo.password
      }).then(async(res) => {

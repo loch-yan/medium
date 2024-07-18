@@ -1,1 +1,1 @@
-export const SERVER_URL=  "https://medium-mzuf.onrender.com/api/v1"
+export const SERVER_URL=  process.env.EXPO_PUBLIC_BACKEND_URL || "http://localhost:8000/api/v1"

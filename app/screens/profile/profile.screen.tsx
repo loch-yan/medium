@@ -15,6 +15,7 @@ import * as FileSystem from "expo-file-system";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { router } from "expo-router";
+import { SERVER_URL } from "@/utils/url";
 
 export default function ProfileScreen() {
   const { user, loading, setRefetch } = useUser();
@@ -50,7 +51,7 @@ export default function ProfileScreen() {
 
       try {
         const response = await axios.put(
-          `http://192.168.29.154:8000/api/v1/update-user-avatar`,
+          `${SERVER_URL}/update-user-avatar`,
           {
             avatar: base64Image,
           },

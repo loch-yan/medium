@@ -2,6 +2,7 @@ import CourseCard from "@/components/cards/course.card";
 import Loader from "@/components/ui/loader";
 import useUser from "@/hooks/auth/useUser";
 import { CoursesType } from "@/types/global";
+import { SERVER_URL } from "@/utils/url";
 import axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useState } from "react";
@@ -13,7 +14,7 @@ export default function index() {
   const { loading, user } = useUser();
 
   useEffect(() => {
-    axios.get(`http://192.168.29.154:8000/api/v1/get-courses`).then((res: any) => {
+    axios.get(`${SERVER_URL}/get-courses`).then((res: any) => {
       const courses: CoursesType[] = res.data.courses;
       const data = courses.filter((i: CoursesType) =>
         user?.courses?.some((d: any) => d._id === i._id)

@@ -11,6 +11,7 @@ import {
   import axios from "axios";
   import CourseCard from "@/components/cards/course.card";
 import { CoursesType } from "@/types/global";
+import { SERVER_URL } from "@/utils/url";
   
   export default function AllCourses() {
     const [courses, setCourses] = useState<CoursesType[]>([]);
@@ -19,7 +20,7 @@ import { CoursesType } from "@/types/global";
   
     useEffect(() => {
       axios
-        .get(`http://192.168.29.154:8000/api/v1/get-courses`)
+        .get(`${SERVER_URL}/get-courses`)
         .then((res: any) => {
           setCourses(res.data.courses);
         })

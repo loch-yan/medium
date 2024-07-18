@@ -3,6 +3,7 @@ import  { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { User } from '@/types/global'
+import { SERVER_URL } from '@/utils/url'
 
 const useUser = () => {
     const [loading, setLoading] = useState(true)
@@ -15,7 +16,7 @@ const useUser = () => {
             const accessToken = await AsyncStorage.getItem("access_token")
             const refreshToken = await AsyncStorage.getItem("refresh_token")
 
-            await axios.get("http://192.168.29.154:8000/api/v1/me", {
+            await axios.get(`${SERVER_URL}/me`, {
                 headers: {
                    "access-token":accessToken,
                    "refresh-token": refreshToken

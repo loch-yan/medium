@@ -6,6 +6,7 @@ import axios from 'axios'
 import { CoursesType } from '@/types/global'
 import { widthPercentageToDP } from 'react-native-responsive-screen'
 import CourseCard from '../cards/course.card'
+import { SERVER_URL } from '@/utils/url'
 
 const SearchInput = ({homeScreen = false}: {homeScreen?: boolean}) => {
     const router = useRouter()
@@ -14,7 +15,7 @@ const SearchInput = ({homeScreen = false}: {homeScreen?: boolean}) => {
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
-        axios.get("http://192.168.29.154:8000/api/v1/get-courses")
+        axios.get(`${SERVER_URL}/get-courses`)
         .then((res) => {
             setCourses(res.data.courses)
             if(!homeScreen){

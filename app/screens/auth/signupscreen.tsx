@@ -48,7 +48,7 @@ const SignUpScreen = () => {
 
   const handleSignUp = async () => {
     await axios
-      .post(`http://192.168.29.154:8000/api/v1/registration`, {
+      .post(`${SERVER_URL}/registration`, {
         name: userInfo.name,
         email: userInfo.email,
         password: userInfo.password,

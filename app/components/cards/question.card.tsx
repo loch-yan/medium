@@ -1,4 +1,5 @@
 import { CommentType, CoursesType } from "@/types/global";
+import { SERVER_URL } from "@/utils/url";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
@@ -35,7 +36,7 @@ export default function QuestionsCard({
 
     await axios
       .put(
-        `http://192.168.29.154:8000/api/v1/add-answer`,
+        `${SERVER_URL}/add-answer`,
         {
           answer: reply,
           courseId: courseData?._id,

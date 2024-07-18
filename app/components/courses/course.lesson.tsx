@@ -48,9 +48,8 @@ export default function CourseLesson({
             );
 
             return (
-              <>
+              <View key={index}>
                 <View
-                  key={index}
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
@@ -121,7 +120,7 @@ export default function CourseLesson({
                     )}
                   </>
                 )}
-              </>
+              </View>
             );
           })}
         </View>

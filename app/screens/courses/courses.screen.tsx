@@ -6,6 +6,7 @@ import Loader from "@/components/ui/loader";
 import { LinearGradient } from "expo-linear-gradient";
 import CourseCard from "@/components/cards/course.card";
 import { CoursesType } from "@/types/global";
+import { SERVER_URL } from "@/utils/url";
 
 export default function CoursesScreen() {
   const [courses, setCourses] = useState<CoursesType[]>([]);
@@ -16,7 +17,7 @@ export default function CoursesScreen() {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.29.154:8000/api/v1/get-layout/Categories`)
+      .get(`${SERVER_URL}/get-layout/Categories`)
       .then((res) => {
         setcategories(res.data.layout.categories);
         fetchCourses();
@@ -28,7 +29,7 @@ export default function CoursesScreen() {
 
   const fetchCourses = () => {
     axios
-      .get(`http://192.168.29.154:8000/api/v1/get-courses`)
+      .get(`${SERVER_URL}/get-courses`)
       .then((res: any) => {
         setCourses(res.data.courses);
         setOriginalCourses(res.data.courses);
