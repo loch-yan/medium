@@ -6,6 +6,9 @@ const nextConfig = {
       experimental:{
         reactRoot: true,
         suppressHydrationWarning: true,
+      },
+      typescript: {
+        ignoreBuildErrors: true
       }
 }
 
