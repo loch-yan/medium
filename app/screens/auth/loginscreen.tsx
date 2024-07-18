@@ -50,11 +50,14 @@ const LoginScreen = () => {
       email: userInfo.email,
       password: userInfo.password
      }).then(async(res) => {
+      setButtonSpinner(true)
       await AsyncStorage.setItem("access_token", res.data.accessToken)
       await AsyncStorage.setItem("refresh_token", res.data.refreshToken)
+      setButtonSpinner(false)
       router.push("/(tabs)")
       
      }).catch((error) => {
+      setButtonSpinner(false)
       console.log(error.message)
       toast.show("Something went wrong", {
         type: "danger"
@@ -115,16 +118,6 @@ const LoginScreen = () => {
                 )
               }
             </TouchableOpacity>
-
-              <View style={{flexDirection: "row", alignItems: "center", justifyContent: "center",  marginTop: 15, gap:5}}>
-                <TouchableOpacity>
-              <FontAwesome name='google' size={30} />
-                </TouchableOpacity>
-                <TouchableOpacity>
-              <FontAwesome name='github' size={30} />
-                </TouchableOpacity>
-              
-              </View>
 
             <View style={loginScreenStyles.signUpRedirect}>
               <Text style={{fontSize: 18}}>

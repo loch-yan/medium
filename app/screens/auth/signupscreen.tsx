@@ -123,16 +123,6 @@ const SignUpScreen = () => {
             }
           </TouchableOpacity>
 
-          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginTop: 15, gap: 5 }}>
-            <TouchableOpacity>
-              <FontAwesome name='google' size={30} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <FontAwesome name='github' size={30} />
-            </TouchableOpacity>
-
-          </View>
-
           <View style={SignUpScreenStyles.signUpRedirect}>
             <Text style={{ fontSize: 18 }}>
               Already have an account?
