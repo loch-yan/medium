@@ -22,7 +22,7 @@ export default function ReviewCard({ item }: { item: ReviewType }) {
             }}
           >
             <View>
-              <Text style={{ fontSize: 18, fontFamily: "Raleway_700Bold" }}>
+              <Text style={{ fontSize: 18}}>
                 {item.user.name}
               </Text>
               <View>

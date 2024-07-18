@@ -55,7 +55,6 @@ const SignUpScreen = () => {
       })
       .then(async (res) => {
         await AsyncStorage.setItem("activation_token", res.data.activationToken)
-        console.log(res.data)
         toast.show(res.data.message, {
           type: "success",
         })
@@ -74,7 +73,7 @@ const SignUpScreen = () => {
     <LinearGradient colors={["#e5ecf9", "#f6f7f9"]} style={{ flex: 1, marginTop: 10 }}>
       <ScrollView>
         <Image source={require("@/assets/auth/register.png")} style={SignUpScreenStyles.SignInImage} />
-        <Text style={[SignUpScreenStyles.welcomeText, { fontFamily: "Raleway_700Bold" }]}>
+        <Text style={[SignUpScreenStyles.welcomeText, ]}>
           Let's get started!
         </Text>
         <Text style={SignUpScreenStyles.loginText}>
@@ -117,7 +116,7 @@ const SignUpScreen = () => {
               buttonSpinner ? (
                 <ActivityIndicator size={"small"} color={"white"} />
               ) : (
-                <Text style={{ color: "white", textAlign: "center", fontSize: 16, fontFamily: "Raleway_700Bold" }}>
+                <Text style={{ color: "white", textAlign: "center", fontSize: 16,  }}>
                   Sign Up
                 </Text>
               )

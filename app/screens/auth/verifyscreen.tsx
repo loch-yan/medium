@@ -29,12 +29,11 @@ const VerifyScreen = () => {
   const handleSubmit = async () => {
     const otp = code.join("")
     const activationToken = await AsyncStorage.getItem("activation_token")
-    console.log(activationToken, otp)
     await axios.post(`http://192.168.29.154:8000/api/v1/activate-user`, {
       activation_token: activationToken,
       activation_code: otp
     }).then((res) => {
-      console.log(res)
+   
       toast.show(res.data.message, {
         type: "success"
       })

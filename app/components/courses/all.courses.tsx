@@ -4,16 +4,8 @@ import {
     TouchableOpacity,
     FlatList,
     Dimensions,
+    SectionList
   } from "react-native";
-  import {
-    useFonts,
-    Raleway_700Bold,
-    Raleway_600SemiBold,
-  } from "@expo-google-fonts/raleway";
-  import {
-    Nunito_600SemiBold,
-    Nunito_500Medium,
-  } from "@expo-google-fonts/nunito";
   import { router } from "expo-router";
   import { useEffect, useRef, useState } from "react";
   import axios from "axios";
@@ -36,17 +28,6 @@ import { CoursesType } from "@/types/global";
         });
     }, []);
   
-    let [fontsLoaded, fontError] = useFonts({
-      Raleway_700Bold,
-      Nunito_600SemiBold,
-      Raleway_600SemiBold,
-      Nunito_500Medium,
-    });
-  
-    if (!fontsLoaded && !fontError) {
-      return null;
-    }
-  
     return (
       <View style={{ flex: 1, marginHorizontal: 16 }}>
         <View
@@ -60,7 +41,6 @@ import { CoursesType } from "@/types/global";
             style={{
               fontSize: 20,
               color: "#000000",
-              fontFamily: "Raleway_700Bold",
             }}
           >
             Popular courses
@@ -70,7 +50,6 @@ import { CoursesType } from "@/types/global";
               style={{
                 fontSize: 15,
                 color: "#2467EC",
-                fontFamily: "Nunito_600SemiBold",
               }}
             >
               See All
@@ -83,6 +62,7 @@ import { CoursesType } from "@/types/global";
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item._id.toString()}
           renderItem={({ item }) => <CourseCard item={item} />}
+          scrollEnabled={false}
         />
       </View>
     );

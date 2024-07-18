@@ -145,7 +145,7 @@ export default function CartScreen() {
             }}
           />
           <View style={{ alignItems: "center", marginBottom: 20 }}>
-            <Text style={{ fontSize: 22, fontFamily: "Raleway_700Bold" }}>
+            <Text style={{ fontSize: 22,  }}>
               Payment Successful!
             </Text>
             <Text
@@ -153,7 +153,6 @@ export default function CartScreen() {
                 fontSize: 15,
                 marginTop: 5,
                 color: "#575757",
-                fontFamily: "Nunito_400Regular",
               }}
             >
               Thank you for your purchase!
@@ -197,7 +196,6 @@ export default function CartScreen() {
                       style={{
                         fontSize: 16,
                         fontWeight: "600",
-                        fontFamily: "Nunito_700Bold",
                       }}
                     >
                       {item?.name}
@@ -227,7 +225,6 @@ export default function CartScreen() {
                           style={{
                             fontSize: 16,
                             color: "#808080",
-                            fontFamily: "Nunito_400Regular",
                           }}
                         >
                           {item.level}
@@ -273,7 +270,7 @@ export default function CartScreen() {
                         color: "white",
                         fontSize: 16,
                         textAlign: "center",
-                        fontFamily: "Nunito_600SemiBold",
+                       
                       }}
                     >
                       Remove
@@ -300,7 +297,6 @@ export default function CartScreen() {
                     fontSize: 24,
                     marginTop: 20,
                     color: "#333",
-                    fontFamily: "Raleway_600SemiBold",
                   }}
                 >
                   Your Cart is Empty!
@@ -319,7 +315,7 @@ export default function CartScreen() {
                     fontSize: 18,
                     textAlign: "center",
                     marginTop: 20,
-                    fontFamily: "Nunito_700Bold",
+            
                   }}
                 >
                   Total Price: ${calculateTotalPrice()}
@@ -343,7 +339,7 @@ export default function CartScreen() {
                       color: "white",
                       fontSize: 18,
                       textAlign: "center",
-                      fontFamily: "Nunito_600SemiBold",
+                     
                     }}
                   >
                     Go for payment

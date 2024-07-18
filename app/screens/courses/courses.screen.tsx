@@ -1,17 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
-import {
-  useFonts,
-  Raleway_700Bold,
-  Raleway_600SemiBold,
-} from "@expo-google-fonts/raleway";
-import {
-  Nunito_400Regular,
-  Nunito_700Bold,
-  Nunito_500Medium,
-  Nunito_600SemiBold,
-} from "@expo-google-fonts/nunito";
+
 import Loader from "@/components/ui/loader";
 import { LinearGradient } from "expo-linear-gradient";
 import CourseCard from "@/components/cards/course.card";
@@ -50,18 +40,7 @@ export default function CoursesScreen() {
       });
   };
 
-  let [fontsLoaded, fontError] = useFonts({
-    Raleway_700Bold,
-    Nunito_400Regular,
-    Nunito_700Bold,
-    Nunito_500Medium,
-    Nunito_600SemiBold,
-    Raleway_600SemiBold,
-  });
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
+ 
 
   const handleCategories = (e: string) => {
     setactiveCategory(e);
@@ -105,6 +84,7 @@ export default function CoursesScreen() {
               </TouchableOpacity>
               {categories?.map((i: any, index: number) => (
                 <TouchableOpacity
+                key={index}
                   style={{
                     padding: 10,
                     backgroundColor:

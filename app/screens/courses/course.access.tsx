@@ -11,7 +11,7 @@ import {
   import { router, useLocalSearchParams } from "expo-router";
   import axios from "axios";
   import AsyncStorage from "@react-native-async-storage/async-storage";
-  import { WebView } from "react-native-webview";
+  // import { WebView } from "react-native-webview";
   import { widthPercentageToDP } from "react-native-responsive-screen";
   import QuestionsCard from "@/components/cards/question.card";
   import { Toast } from "react-native-toast-notifications";
@@ -158,10 +158,10 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
             <View
               style={{ width: "100%", aspectRatio: 16 / 9, borderRadius: 10 }}
             >
-              <WebView
+              {/* <WebView
                 source={{ uri: courseContentData[activeVideo]?.videoUrl! }}
                 allowsFullscreenVideo={true}
-              />
+              /> */}
             </View>
             <View
               style={{
@@ -216,7 +216,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
                 <Text
                   style={{
                     color: activeButton === "About" ? "#fff" : "#000",
-                    fontFamily: "Nunito_600SemiBold",
+
                   }}
                 >
                   About
@@ -235,7 +235,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
                 <Text
                   style={{
                     color: activeButton === "Q&A" ? "#fff" : "#000",
-                    fontFamily: "Nunito_600SemiBold",
+
                   }}
                 >
                   Q&A
@@ -254,7 +254,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
                 <Text
                   style={{
                     color: activeButton === "Reviews" ? "#fff" : "#000",
-                    fontFamily: "Nunito_600SemiBold",
+
                   }}
                 >
                   Reviews
@@ -270,7 +270,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
                   paddingHorizontal: 10,
                 }}
               >
-                <Text style={{ fontSize: 18, fontFamily: "Raleway_700Bold" }}>
+                <Text style={{ fontSize: 18, }}>
                   About course
                 </Text>
                 <Text
@@ -279,7 +279,7 @@ import { CommentType, CourseDataType, CoursesType, ReviewType } from "@/types/gl
                     fontSize: 16,
                     marginTop: 10,
                     textAlign: "justify",
-                    fontFamily: "Nunito_500Medium",
+               
                   }}
                 >
                   {isExpanded

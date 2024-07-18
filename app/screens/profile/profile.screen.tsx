@@ -8,16 +8,7 @@ import {
 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import {
-  useFonts,
-  Raleway_600SemiBold,
-  Raleway_700Bold,
-} from "@expo-google-fonts/raleway";
-import {
-  Nunito_400Regular,
-  Nunito_600SemiBold,
-  Nunito_700Bold,
-} from "@expo-google-fonts/nunito";
+
 import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
@@ -30,17 +21,7 @@ export default function ProfileScreen() {
   const [image, setImage] = useState<any>(null);
   const [loader, setLoader] = useState(false);
 
-  let [fontsLoaded, fontError] = useFonts({
-    Raleway_600SemiBold,
-    Raleway_700Bold,
-    Nunito_400Regular,
-    Nunito_600SemiBold,
-    Nunito_700Bold,
-  });
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
+  
 
   const logoutHandler = async () => {
     await AsyncStorage.removeItem("access_token");
@@ -146,7 +127,7 @@ export default function ProfileScreen() {
                 style={{
                   fontSize: 20,
                   marginBottom: 16,
-                  fontFamily: "Raleway_700Bold",
+               
                 }}
               >
                 Account Details
@@ -185,14 +166,14 @@ export default function ProfileScreen() {
                   </View>
                   <TouchableOpacity onPress={() => router.push("(routes)/profile-details")}>
                     <Text
-                      style={{ fontSize: 16, fontFamily: "Nunito_700Bold" }}
+                      style={{ fontSize: 16, }}
                     >
                       Detail Profile
                     </Text>
                     <Text
                       style={{
                         color: "#575757",
-                        fontFamily: "Nunito_400Regular",
+                  
                       }}
                     >
                       Information Account
@@ -238,14 +219,14 @@ export default function ProfileScreen() {
                   </View>
                   <View>
                     <Text
-                      style={{ fontSize: 16, fontFamily: "Nunito_700Bold" }}
+                      style={{ fontSize: 16,  }}
                     >
                       Enrolled courses
                     </Text>
                     <Text
                       style={{
                         color: "#575757",
-                        fontFamily: "Nunito_400Regular",
+
                       }}
                     >
                       The all enrolled courses
@@ -291,7 +272,7 @@ export default function ProfileScreen() {
                   </View>
                   <TouchableOpacity onPress={() => logoutHandler()}>
                     <Text
-                      style={{ fontSize: 16, fontFamily: "Nunito_700Bold" }}
+                      style={{ fontSize: 16,}}
                     >
                       Log Out
                     </Text>

@@ -13,8 +13,8 @@ const HomeScreen = () => {
       <SearchInput />
     <ScrollView showsVerticalScrollIndicator={false} >
       <HomeBannerSlider />
-    </ScrollView>
       <AllCourses />
+    </ScrollView>
     </LinearGradient>
   )
 }

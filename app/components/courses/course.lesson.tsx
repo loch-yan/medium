@@ -62,7 +62,7 @@ export default function CourseLesson({
                   }}
                 >
                   <Text
-                    style={{ fontSize: 18, fontFamily: "Raleway_600SemiBold" }}
+                    style={{ fontSize: 18 }}
                   >
                     {item}
                   </Text>
@@ -98,7 +98,6 @@ export default function CourseLesson({
                                 <Text
                                   style={[
                                     styles.itemTitleText,
-                                    { fontFamily: "Nunito_500Medium" },
                                   ]}
                                 >
                                   {item.title}
@@ -109,7 +108,6 @@ export default function CourseLesson({
                                   style={{
                                     marginRight: 6,
                                     color: "#818181",
-                                    fontFamily: "Nunito_400Regular",
                                   }}
                                 >
                                   {item.videoLength}{" "}

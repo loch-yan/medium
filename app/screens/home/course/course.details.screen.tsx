@@ -1,17 +1,6 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
-import {
-  useFonts,
-  Raleway_600SemiBold,
-  Raleway_700Bold,
-} from "@expo-google-fonts/raleway";
-import {
-  Nunito_400Regular,
-  Nunito_500Medium,
-  Nunito_700Bold,
-  Nunito_600SemiBold,
-} from "@expo-google-fonts/nunito";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import CourseLesson from "@/components/courses/course.lesson";
@@ -48,18 +37,7 @@ export function CourseDetailScreen() {
     router.push("/(routes)/cart");
   };
 
-  let [fontsLoaded, fontError] = useFonts({
-    Raleway_600SemiBold,
-    Raleway_700Bold,
-    Nunito_400Regular,
-    Nunito_500Medium,
-    Nunito_700Bold,
-    Nunito_600SemiBold,
-  });
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
+  
 
   return (
     <>
@@ -88,7 +66,7 @@ export function CourseDetailScreen() {
                   style={{
                     color: "black",
                     fontSize: 14,
-                    fontFamily: "Nunito_600SemiBold",
+                 
                   }}
                 >
                   Best Seller
@@ -112,7 +90,6 @@ export function CourseDetailScreen() {
                     style={{
                       color: "white",
                       marginLeft: 4,
-                      fontFamily: "Nunito_600SemiBold",
                     }}
                   >
                     {courseData?.ratings}
@@ -129,8 +106,7 @@ export function CourseDetailScreen() {
                 marginHorizontal: 16,
                 marginTop: 15,
                 fontSize: 20,
-                fontWeight: "600",
-                fontFamily: "Raleway_700Bold",
+              
               }}
             >
               {courseData?.name}
@@ -235,7 +211,6 @@ export function CourseDetailScreen() {
                 <Text
                   style={{
                     color: activeButton === "About" ? "#fff" : "#000",
-                    fontFamily: "Nunito_600SemiBold",
                   }}
                 >
                   About
@@ -254,7 +229,7 @@ export function CourseDetailScreen() {
                 <Text
                   style={{
                     color: activeButton === "Lessons" ? "#fff" : "#000",
-                    fontFamily: "Nunito_600SemiBold",
+                 
                   }}
                 >
                   Lessons
@@ -273,7 +248,7 @@ export function CourseDetailScreen() {
                 <Text
                   style={{
                     color: activeButton === "Reviews" ? "#fff" : "#000",
-                    fontFamily: "Nunito_600SemiBold",
+                 
                   }}
                 >
                   Reviews
@@ -288,7 +263,7 @@ export function CourseDetailScreen() {
                   paddingHorizontal: 10,
                 }}
               >
-                <Text style={{ fontSize: 18, fontFamily: "Raleway_700Bold" }}>
+                <Text style={{ fontSize: 18, }}>
                   About course
                 </Text>
                 <Text
@@ -297,7 +272,7 @@ export function CourseDetailScreen() {
                     fontSize: 16,
                     marginTop: 10,
                     textAlign: "justify",
-                    fontFamily: "Nunito_500Medium",
+          
                   }}
                 >
                   {isExpanded
@@ -366,7 +341,7 @@ export function CourseDetailScreen() {
                     textAlign: "center",
                     color: "#FFFF",
                     fontSize: 16,
-                    fontFamily: "Nunito_600SemiBold",
+                 
                   }}
                 >
                   Go to the course
@@ -386,7 +361,7 @@ export function CourseDetailScreen() {
                     textAlign: "center",
                     color: "#FFFF",
                     fontSize: 16,
-                    fontFamily: "Nunito_600SemiBold",
+                 
                   }}
                 >
                   Add to cart

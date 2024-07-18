@@ -35,7 +35,6 @@ export default function CourseCard({ item }: { item: CoursesType }) {
               fontSize: 14,
               textAlign: "left",
               marginTop: 10,
-              fontFamily: "Raleway_600SemiBold",
             }}
           >
             {item.name}

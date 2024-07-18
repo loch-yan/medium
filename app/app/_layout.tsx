@@ -3,10 +3,8 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
-import { View } from 'react-native';
 import 'react-native-reanimated';
 import { ToastProvider } from 'react-native-toast-notifications'
-import TabsLayout from './(tabs)/_layout';
 
 export {
   ErrorBoundary,
@@ -55,14 +53,14 @@ function RootLayoutNav() {
             headerBackTitle: "Back",
           }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="(routes)/cart/index"
           options={{
             headerShown: true,
             title: "Cart Items",
             headerBackTitle: "Back",
           }}
-        /> */}
+        />
         <Stack.Screen
           name="(routes)/profile-details/index"
           options={{
@@ -71,14 +69,14 @@ function RootLayoutNav() {
             headerBackTitle: "Back",
           }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="(routes)/course-access/index"
           options={{
             headerShown: true,
             title: "Course Lessons",
             headerBackTitle: "Back",
           }}
-        /> */}
+        />
         <Stack.Screen
           name="(routes)/enrolled-courses/index"
           options={{

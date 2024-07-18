@@ -50,7 +50,6 @@ const LoginScreen = () => {
       email: userInfo.email,
       password: userInfo.password
      }).then(async(res) => {
-      console.log(res.data)
       await AsyncStorage.setItem("access_token", res.data.accessToken)
       await AsyncStorage.setItem("refresh_token", res.data.refreshToken)
       router.push("/(tabs)")
@@ -68,7 +67,7 @@ const LoginScreen = () => {
     <LinearGradient colors={["#e5ecf9", "#f6f7f9"]} style={{ flex: 1, marginTop: 10 }}>
       <ScrollView>
         <Image source={require("@/assets/auth/login.png")} style={loginScreenStyles.SignInImage} />
-        <Text style={[loginScreenStyles.welcomeText, { fontFamily: "Raleway_700Bold" }]}>
+        <Text style={[loginScreenStyles.welcomeText,]}>
           Welcome Back!
         </Text>
         <Text style={loginScreenStyles.loginText}>
@@ -103,14 +102,14 @@ const LoginScreen = () => {
             )}
           </View>
             <TouchableOpacity onPress={() => router.push("/(routes)/forgot-password")}>
-              <Text style={[loginScreenStyles.forgotSection, {fontFamily: "Nunito_600SemiBold"}]}>Forgot password?</Text>
+              <Text style={[loginScreenStyles.forgotSection]}>Forgot password?</Text>
             </TouchableOpacity>
             <TouchableOpacity style={commonStyles.buttonContainer} onPress={handleSignIn}>
               {
                 buttonSpinner ? (
                   <ActivityIndicator size={"small"} color={"white"} />
                 ) : (
-                  <Text style={{color: "white", textAlign: "center", fontSize: 16, fontFamily: "Raleway_700Bold"}}>
+                  <Text style={{color: "white", textAlign: "center", fontSize: 16,}}>
                       Sign In
                   </Text>
                 )

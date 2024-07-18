@@ -8,7 +8,6 @@ import { useRouter } from 'expo-router'
 const Header = () => {
   const router = useRouter()
   const {user} = useUser()
-  console.log(user)
 
   const [cartItems, setCartItems] = useState([]);
 

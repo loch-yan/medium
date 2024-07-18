@@ -16,7 +16,6 @@ const SearchInput = ({homeScreen = false}: {homeScreen?: boolean}) => {
     useEffect(() => {
         axios.get("http://192.168.29.154:8000/api/v1/get-courses")
         .then((res) => {
-            console.log(res.data)
             setCourses(res.data.courses)
             if(!homeScreen){
                 setFilteredCourses(res.data.courses)

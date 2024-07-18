@@ -18,17 +18,12 @@ app.use(express.json({ limit: "50mb" }));
 // cookie parser
 app.use(cookieParser());
 
-// cors => cross origin resource sharing - for admin web app
-// app.use(cors({
-//   origin: "http://localhost:3000",
-//   credentials: true
-// }));
-
-// cors => cross origin resource sharing - for app 
+// cors => cross origin resource sharing 
 app.use(cors({
-  origin: "*",
+  origin: ["http://localhost:3000", "*"],
   credentials: true
 }));
+
 
 // api requests limit
 const limiter = rateLimit({

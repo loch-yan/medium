@@ -50,7 +50,7 @@ export default function QuestionsCard({
         }
       )
       .then((res) => {
-        console.log(res.data);
+    
         setReply("");
         setOpen(!open);
         fetchCourseContent();
@@ -80,7 +80,7 @@ export default function QuestionsCard({
               }}
             >
               <View>
-                <Text style={{ fontSize: 18, fontFamily: "Raleway_700Bold" }}>
+                <Text style={{ fontSize: 18}}>
                   {item.user.name}
                 </Text>
                 <Text
@@ -141,7 +141,6 @@ export default function QuestionsCard({
                           <Text
                             style={{
                               fontSize: 18,
-                              fontFamily: "Raleway_700Bold",
                             }}
                           >
                             {reply.user.name}

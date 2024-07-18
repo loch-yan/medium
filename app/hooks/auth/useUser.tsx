@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native'
-import React, { useEffect, useState } from 'react'
+
+import  { useEffect, useState } from 'react'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { User } from '@/types/global'

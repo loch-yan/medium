@@ -1,6 +1,4 @@
 import { View, Text, Image } from 'react-native'
-import { Nunito_400Regular, Nunito_600SemiBold, useFonts } from '@expo-google-fonts/nunito'
-import { Raleway_700Bold } from '@expo-google-fonts/raleway'
 import { onBoardingSwiperType } from "@/types/global";
 import { LinearGradient } from 'expo-linear-gradient';
 import AppIntroSlider from "react-native-app-intro-slider"
@@ -13,15 +11,6 @@ import { welcomeStyles } from '@/styles/welcome/welcome.style';
 
 const WelcomeIntroScreen = () => {
   const router = useRouter()
-  let [fontsLoaded, fontError] = useFonts({
-    Nunito_600SemiBold,
-    Nunito_400Regular,
-    Raleway_700Bold
-  })
-
-  if (!fontsLoaded && !fontError) {
-    return null
-  }
 
   const renderItem = ({ item }: { item: onBoardingSwiperType }) => {
     return <LinearGradient colors={["#e5ecf9", "#f6f7f9", "#e8eef9"]} style={{
@@ -29,9 +18,9 @@ const WelcomeIntroScreen = () => {
     }}>
       <View style={{ marginTop: 50 }}>
         <Image source={item.image} style={welcomeStyles.slideImage} />
-        <Text style={[commonStyles.title, { fontFamily: "Raleway_700Bold" }]}>{item.title}</Text>
+        <Text style={[commonStyles.title,]}>{item.title}</Text>
         <View style={{marginTop: 10}}>
-        <Text style={[commonStyles.description, { fontFamily: "Nunito_600SemiBold" }]}>{item.description}</Text>
+        <Text style={[commonStyles.description, ]}>{item.description}</Text>
         </View>
       </View>
     </LinearGradient>
@@ -44,14 +33,14 @@ const WelcomeIntroScreen = () => {
       }}
       renderNextButton={() => {
         return <View style={commonStyles.welcomeStyleButton}>
-          <Text style={[styles.buttonText, { fontFamily: "Nunito_400Regular" }]}>
+          <Text style={[styles.buttonText]}>
             Next
           </Text>
         </View>
       }}
       renderDoneButton={() => {
         return <View style={commonStyles.welcomeStyleButton}>
-          <Text style={[styles.buttonText, { fontFamily: "Nunito_600SemiBold" }]}>
+          <Text style={[styles.buttonText, ]}>
             Done
           </Text>
         </View>
