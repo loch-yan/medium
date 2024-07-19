@@ -7,8 +7,7 @@ const TabsLayout = () => {
   const { user } = useUser();
 
   return (
-    <Tabs
-      screenOptions={({ route }) => ({
+    <Tabs screenOptions={({ route }) => ({
         tabBarIcon: ({ color }) => {
           let iconName;
           let isUri = false;
@@ -32,10 +31,10 @@ const TabsLayout = () => {
             <Image
               source={iconName}
               style={{ 
-                width: 29, 
-                height: 29, 
+                width: 24, 
+                height: 24, 
                 tintColor: isUri ? undefined : color, 
-                borderRadius: isUri ? 50 : 2
+                borderRadius: isUri ? 50 : 1
               }}
             />
           );
@@ -43,14 +42,21 @@ const TabsLayout = () => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          display: route.name === 'example' ? 'none' : 'flex',
-        },
+          position: "absolute",
+          bottom: 15,
+          flexDirection: "row",
+          justifyContent: 'space-between',
+          alignItems: "center",
+          backgroundColor: "white",
+          marginHorizontal: 20,
+          borderRadius: 27
+        }
       })}
     >
-      <Tabs.Screen name="index" />
-      <Tabs.Screen name="search/index" />
+      <Tabs.Screen name="index"  />
+      <Tabs.Screen name="search/index"  />
       <Tabs.Screen name="courses/index" />
-      <Tabs.Screen name="profile/index" />
+      <Tabs.Screen name="profile/index"  />
     </Tabs>
   );
 };
