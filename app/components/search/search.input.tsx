@@ -15,7 +15,7 @@ const SearchInput = ({homeScreen = false}: {homeScreen?: boolean}) => {
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
-        axios.get(`${SERVER_URL}/get-courses`)
+        axios.get(`https://medium-fzcl.onrender.com/api/v1/get-courses`)
         .then((res) => {
             setCourses(res.data.courses)
             if(!homeScreen){

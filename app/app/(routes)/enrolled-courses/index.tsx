@@ -14,7 +14,7 @@ export default function index() {
   const { loading, user } = useUser();
 
   useEffect(() => {
-    axios.get(`${SERVER_URL}/get-courses`).then((res: any) => {
+    axios.get(`https://medium-fzcl.onrender.com/api/v1/get-courses`).then((res: any) => {
       const courses: CoursesType[] = res.data.courses;
       const data = courses.filter((i: CoursesType) =>
         user?.courses?.some((d: any) => d._id === i._id)

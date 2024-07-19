@@ -66,7 +66,7 @@ export default function CartScreen() {
       );
 
       const paymentIntentResponse = await axios.post(
-        `${SERVER_URL}/payment`,
+        `https://medium-fzcl.onrender.com/api/v1/payment`,
         { amount },
         {
           headers: {
@@ -106,7 +106,7 @@ export default function CartScreen() {
 
     await axios
       .post(
-        `${SERVER_URL}/create-mobile-order`,
+        `https://medium-fzcl.onrender.com/api/v1/create-mobile-order`,
         {
           courseId: cartItems[0]._id,
           payment_info: paymentResponse,

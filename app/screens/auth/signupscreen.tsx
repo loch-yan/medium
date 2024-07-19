@@ -48,7 +48,7 @@ const SignUpScreen = () => {
 
   const handleSignUp = async () => {
     await axios
-      .post(`${SERVER_URL}/registration`, {
+      .post(`https://medium-fzcl.onrender.com/api/v1/registration`, {
         name: userInfo.name,
         email: userInfo.email,
         password: userInfo.password,
@@ -58,9 +58,11 @@ const SignUpScreen = () => {
         toast.show(res.data.message, {
           type: "success",
         })
+        setButtonSpinner(false)
         router.push("/(routes)/verify-account")
       })
       .catch((error) => {
+        setButtonSpinner(false)
         console.log(error);
         toast.show("Something went wrong", {
           type: "danger"
@@ -103,13 +105,13 @@ const SignUpScreen = () => {
               </TouchableOpacity>
               <SimpleLineIcons style={SignUpScreenStyles.icon} name='lock' size={20} color={"#a1a1a1"} />
             </View>
+          </View>
             {error.password && (
-              <View style={[commonStyles.erroContainer, { top: 145 }]}>
+              <View style={[commonStyles.erroContainer, { top: 200 }]}>
                 <Entypo name='cross' size={10} color="red" />
                 <Text style={SignUpScreenStyles.errorText}>{error.password}</Text>
               </View>
             )}
-          </View>
 
           <TouchableOpacity style={commonStyles.buttonContainer} onPress={handleSignUp}>
             {

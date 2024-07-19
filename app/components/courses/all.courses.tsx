@@ -20,7 +20,7 @@ import { SERVER_URL } from "@/utils/url";
   
     useEffect(() => {
       axios
-        .get(`${SERVER_URL}/get-courses`)
+        .get(`https://medium-fzcl.onrender.com/api/v1/get-courses`)
         .then((res: any) => {
           setCourses(res.data.courses);
         })
