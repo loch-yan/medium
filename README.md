@@ -36,6 +36,23 @@ Medium is a full-stack React Native app built with Expo, designed to provide a c
 
 ## 🚀 Demo
 
+<table>
+  <tr>
+    <td><img src="https://via.placeholder.com/100" alt="Image 1" width="100"/></td>
+    <td><img src="https://via.placeholder.com/100" alt="Image 2" width="100"/></td>
+    <td><img src="https://via.placeholder.com/100" alt="Image 3" width="100"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://via.placeholder.com/100" alt="Image 4" width="100"/></td>
+    <td><img src="https://via.placeholder.com/100" alt="Image 5" width="100"/></td>
+    <td><img src="https://via.placeholder.com/100" width="100" alt="Image 6"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://via.placeholder.com/100" alt="Image 4" width="100"/></td>
+    <td><img src="https://via.placeholder.com/100" alt="Image 5" width="100"/></td>
+    <td><img src="https://via.placeholder.com/100" width="100" alt="Image 6"/></td>
+  </tr>
+</table>
 
 ## 📞 Contact
 
