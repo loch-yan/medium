@@ -51,7 +51,7 @@ export default function ProfileScreen() {
 
       try {
         const response = await axios.put(
-          `https://medium-fzcl.onrender.com/api/v1/update-user-avatar`,
+          `http://localhost:8000/api/v1/update-user-avatar`,
           {
             avatar: base64Image,
           },

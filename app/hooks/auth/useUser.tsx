@@ -16,7 +16,7 @@ const useUser = () => {
             const accessToken = await AsyncStorage.getItem("access_token")
             const refreshToken = await AsyncStorage.getItem("refresh_token")
 
-            await axios.get(`https://medium-fzcl.onrender.com/api/v1/me`, {
+            await axios.get(`http://localhost:8000/api/v1/me`, {
                 headers: {
                    "access-token":accessToken,
                    "refresh-token": refreshToken

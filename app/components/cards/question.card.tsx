@@ -36,7 +36,7 @@ export default function QuestionsCard({
 
     await axios
       .put(
-        `https://medium-fzcl.onrender.com/api/v1/add-answer`,
+        `http://localhost:8000/api/v1/add-answer`,
         {
           answer: reply,
           courseId: courseData?._id,

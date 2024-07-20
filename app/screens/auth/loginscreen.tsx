@@ -46,7 +46,7 @@ const LoginScreen = () => {
   }
 
   const handleSignIn = async () => {
-    await axios.post(`https://medium-fzcl.onrender.com/api/v1/login`, {
+    await axios.post(`http://localhost:8000/api/v1/login`, {
       email: userInfo.email,
       password: userInfo.password
      }).then(async(res) => {

@@ -30,7 +30,7 @@ const VerifyScreen = () => {
   const handleSubmit = async () => {
     const otp = code.join("")
     const activationToken = await AsyncStorage.getItem("activation_token")
-    await axios.post(`https://medium-fzcl.onrender.com/api/v1/activate-user`, {
+    await axios.post(`http://localhost:8000/api/v1/activate-user`, {
       activation_token: activationToken,
       activation_code: otp
     }).then((res) => {

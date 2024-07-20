@@ -56,7 +56,7 @@ export const CourseAccessScreen = () => {
     const accessToken = await AsyncStorage.getItem("access_token");
     const refreshToken = await AsyncStorage.getItem("refresh_token");
     await axios
-      .get(`https://medium-fzcl.onrender.com/api/v1/get-course-content/${data._id}`, {
+      .get(`http://localhost:8000/api/v1/get-course-content/${data._id}`, {
         headers: {
           "access-token": accessToken,
           "refresh-token": refreshToken,
@@ -78,7 +78,7 @@ export const CourseAccessScreen = () => {
 
     await axios
       .put(
-        `https://medium-fzcl.onrender.com/api/v1/add-question`,
+        `http://localhost:8000/api/v1/add-question`,
         {
           question: quesion,
           courseId: data?._id,
@@ -109,7 +109,7 @@ export const CourseAccessScreen = () => {
 
     await axios
       .put(
-        `https://medium-fzcl.onrender.com/api/v1/add-review/${data?._id}`,
+        `http://localhost:8000/api/v1/add-review/${data?._id}`,
         {
           review,
           rating,

@@ -17,7 +17,7 @@ export default function CoursesScreen() {
 
   useEffect(() => {
     axios
-      .get(`https://medium-fzcl.onrender.com/api/v1/get-layout/Categories`)
+      .get(`http://localhost:8000/api/v1/get-layout/Categories`)
       .then((res) => {
         setcategories(res.data.layout.categories);
         fetchCourses();
@@ -29,7 +29,7 @@ export default function CoursesScreen() {
 
   const fetchCourses = () => {
     axios
-      .get(`https://medium-fzcl.onrender.com/api/v1/get-courses`)
+      .get(`http://localhost:8000/api/v1/get-courses`)
       .then((res: any) => {
         setCourses(res.data.courses);
         setOriginalCourses(res.data.courses);

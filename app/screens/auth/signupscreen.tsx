@@ -48,7 +48,7 @@ const SignUpScreen = () => {
 
   const handleSignUp = async () => {
     await axios
-      .post(`https://medium-fzcl.onrender.com/api/v1/registration`, {
+      .post(`http://localhost:8000/api/v1/registration`, {
         name: userInfo.name,
         email: userInfo.email,
         password: userInfo.password,
