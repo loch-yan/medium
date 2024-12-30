@@ -53,9 +53,3 @@ Medium is a full-stack React Native app built with Expo, designed to provide a c
 ![Screenshot_20240720_092102](https://github.com/user-attachments/assets/6ad88ebe-29af-4f23-a3ab-7ff72f00d7b3)
 
 
-
-
-## 📞 Contact
-
-    Email: piyushyadav0191@gmail.com
-    GitHub: piyushyadav0191
